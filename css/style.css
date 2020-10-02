@@ -1,0 +1,464 @@
+:root {
+    --mainbg: #252536; 
+    --lightblue: rgba(0, 123, 255, 0.15);
+    --darkblue:rgb(33, 139, 252);
+    --lightgreen:rgba(40, 167, 69, 0.2);
+    --darkgreen:rgb(40, 167, 69);
+    --lightgrey:rgba(108, 117, 125, 0.3);
+    --darkgrey:#d2d6da; 
+    --lightred:rgba(255,7,58,0.2);
+    --darkred:rgb(255, 7, 58);
+
+}
+*{
+    margin:0;
+    padding:0;
+    font-family: 'Montserrat';
+}
+body{
+    background-color: var(--mainbg);
+}
+
+/* TOP PART WITH CARDS AND DATE */
+.head{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    min-height: 50vh;
+    background-color:var(--mainbg);
+    color: wheat;
+    margin: auto;
+    padding:0 0 2rem 0;
+    width: 99vw;
+
+}
+.head .date{
+    text-align: center;
+}
+.head .date h4{
+    margin: 20px 0;
+}
+.head .date h1{
+    margin: 20px 0;
+}
+
+.cards{
+    display: flex;
+    justify-items: center;
+    align-items: center;
+    width: 100%;
+    justify-content: space-evenly;
+    font-weight: 550;
+    letter-spacing: 0.5px;
+}
+.card{
+    height:13rem;
+    min-width:23%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+}
+
+.card .top{
+    flex:1;
+    display: flex;
+    align-items: center;
+}
+.card .top p{
+    align-self: center;
+    
+}
+.card .bottom{
+    justify-content: center;
+    flex:2;
+    text-align: center;
+}
+.card .bottom p{
+    font-size: 25px;
+    margin-top: 5px;
+}
+#confirmed{
+    background-color:var(--lightred);
+    color:var(--darkred);
+}
+
+#active{
+    background-color: var(--lightblue);
+    color: var(--darkblue);
+}
+#recovered{
+    background-color: var(--lightgreen);
+    color:var(--darkgreen);
+}
+#death{
+    background-color: var(--lightgrey);
+  color:var(--darkgrey);
+
+}
+
+
+/* MAP  MAP-DATA  ANFD MAP_TYPE */
+main{
+    display: grid;
+    grid-template-rows: 30% 1fr;
+    grid-template-columns: 55% 45%;
+    min-height: 100vh;
+    width: 100vw;
+
+}
+/* MAP */
+.map{
+    grid-row: 1/3;
+    grid-column: 1/2;
+    height: 100%;
+    width: 100%;
+    background-color: var(--mainbg);
+}
+
+/* MAP-STYLE CHANGE Like bubble,state,active,confirmed etc */
+.map-nav{
+    background-color: var(--mainbg);
+    color: whitesmoke;
+    display: flex;
+    flex-direction: column;
+    
+    justify-content: space-evenly;
+    align-items: flex-start;
+    padding: 25px 0 25px 0;
+}
+.map-nav-item {
+    display: flex;
+    justify-items: center;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 5px 0;
+}
+.map-nav-item h3{
+    padding: 0px 0 0 20px;
+}
+.map-nav-item button,#chart-type button{
+    margin: 0 5px 0 5px;
+    border: none;
+    outline: none;
+    padding: 10px 10px;
+    background-color:#111111b6;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    color: white;
+}
+.map-nav-item button:hover,#chart-type button:hover {
+    background-color: rgb(219, 206, 206);
+    color: rgba(10, 8, 8, 0.856);
+    
+}
+
+/* On hovering map show data in below section like state and distric data */
+.map-hover-data {
+    grid-row: 2/3;
+    grid-column: 2/3;
+    background-color: var(--mainbg);
+    color: rgb(231, 220, 220);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+
+}
+.map-hover-data-item h1,.map-hover-data-item h3{
+    padding: 0 0 0 20px;
+}
+.map-hover-data-item .cf{
+    color: var(--darkred);
+}
+.map-hover-data-item .ac{
+    color: var(--darkblue);
+}
+.map-hover-data-item .rc{
+    color: var(--darkgreen);
+}
+.map-hover-data-item .dh{
+    color: var(--darkgrey);
+}
+.map-hover-data-item .tnm{
+    color: wheat;
+    border-bottom:2px  solid whitesmoke;
+    border-top:2px  solid whitesmoke;
+    border-right:2px  solid whitesmoke;
+    border-left: 10px solid whitesmoke;
+}
+#statemap-district-name{
+    min-width: 250px;
+    max-width: 400px;
+    
+}
+.map-hover-data-item{
+    flex:1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+.map-hover-data-item{
+    flex:1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+#inidamap{
+    background-color: var(--mainbg);
+    height: 100vh;
+    width: 50vw;
+}
+
+
+
+/* -----------------------------DATA TABLES------------------------------------ */
+.table-conatiner{
+    min-height: 50vh;
+    background-color: var(--mainbg);
+
+}
+.myTable{
+    width: 90%;
+    margin: auto;
+    min-height: 30vh;
+    margin:20vh auto;
+
+}
+.myTable,th,tr,td{
+    justify-self: center;
+    align-self: center;
+    text-align: center;
+    border-collapse: collapse;
+}
+.myTable tr:nth-child(1){
+    margin: 10px;
+    border-radius: 10px;
+}
+.myTable th{
+   background-color: #94949b;
+   position: sticky;
+   top: 0;
+}
+.myTable tr:nth-child(odd){
+    background-color: #3d3d47;
+    color: whitesmoke;
+    font-weight: 600;
+    
+}
+.myTable tr:nth-child(even){
+    font-weight: 600;
+    background-color: #241b1b42;
+    color: whitesmoke;
+
+}
+
+/* --------------------------------      CHARTS    ------------------------------------ */
+#chart-container{
+    display: flex;
+    flex-direction: column;
+    background-color: var(--mainbg);
+    
+}
+#chart-nav{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+}
+select {
+    box-shadow: none;
+    border: 0 !important;
+    width:300px;
+    color: wheat;
+    padding: 12px 10px;
+    background-color:#000000de;
+    border-radius: 5px;
+  }
+
+#chart-type{
+    padding: 10px 0;
+}
+/* #chart-container .chart{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+#chart-container .chart svg{
+    margin: 10px 0;
+    width: 45vw;
+    height: 45vh;
+
+} */
+
+
+.india-state-chart-conatainer{
+    margin: 25px 0;
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    grid-template-rows: repeat(2,1fr);
+    justify-items: center;
+    align-items: center;
+    gap: 20px;
+}
+.india-state-chart{
+    border-radius: 10px;
+    width: 45vw;
+    min-height: 45vh;
+    display: flex;
+    flex-direction: column;
+    
+}
+.india-state-chart svg{
+    flex:1;
+}
+.india-state-chart div{
+    margin: 10px 0px 10px 25px;
+}
+.india-state-chart div h4{
+    padding: 2px;
+}
+
+#confirmchart-container,#st-confirmchart-container{
+    background-color: var(--lightred);
+}
+#confirmchart-container h4,#st-confirmchart-container h4{
+    color: var(--darkred);
+}
+#activechart-container,#st-activechart-container {
+    background-color: var(--lightblue);
+}
+#activechart-container h4,#st-activechart-container h4{
+    color: var(--darkblue);
+}
+#recoverchart-container,#st-recoverchart-container{
+    background-color: var(--lightgreen);
+}
+#recoverchart-container h4,#st-recoverchart-container h4{
+    color: var(--darkgreen);
+}
+#deathchart-container,#st-deathchart-container{
+    background-color: var(--lightgrey);
+}
+#deathchart-container h4,#st-deathchart-container h4{
+    color: var(--darkgrey);
+}
+
+
+
+
+
+
+
+/* STATE.HTML File CSS */
+#statemain{
+    display: grid;
+    grid-template-columns: 60% auto;
+    grid-template-rows: 1fr 1fr;
+}
+#statemap{
+    grid-row: 1/3;
+    grid-column: 1/2;
+}
+#statemap-nav{
+    grid-row: 1/2;
+    grid-column: 2/3;
+}
+#statemap-hover-data{
+    grid-row: 2/3;
+    grid-column: 2/3;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+
+
+
+
+#statemap-nav .active,#chart-type .active,#each-state-map-nav .active{
+    background-color: black;
+    border: 2px solid gray;
+    font-weight: bold;
+}
+#statemap-nav .active:hover,#chart-type .active:hover,#each-state-map-nav .active:hover{
+    background-color: rgb(219, 206, 206);
+    cursor: not-allowed;
+}
+
+
+@media screen and (max-width: 750px) {
+    .head{
+        flex-direction: column;
+    }
+    .head .date{
+         margin: 1rem 0 1rem 0;
+     }
+
+    .cards{
+        flex-direction: column;
+    }
+    .card{
+        width:90%;
+        border-radius: 5px;
+        height: 7rem;
+        margin: 0.5rem 0;
+    }
+    #death{
+        margin-bottom:1rem ;
+    }
+    main{
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    min-height: 100vh;
+    }
+    main svg{
+        height: 100vh;
+        order: 2;
+    }
+    #indiamap{
+        height: 100vh;
+    }
+    .map-nav{
+    order: 1;
+    height: 50vh;
+    }
+    .map-hover-data{
+        order: 3;
+        height: 100vh;
+        padding:0 20px 20px 0;
+    }
+    #chart-nav{
+        padding: 25px 0;
+    }
+
+
+    .india-state-chart-conatainer{
+        display: flex;
+        flex-direction: column;
+    }
+    .india-state-chart{
+        width: 95%;
+    }
+   
+    #statemain{
+        display: flex;
+    }
+    #statemap{
+        order:2;
+        height: 100vh;
+    }
+    #statemap-nav{
+        order: 1;
+    }
+    #statemap-hover-data{
+        order: 3;
+        justify-content: space-around;
+        min-height: 45vh;
+    }
+    
+}

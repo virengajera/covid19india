@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--     <script src="https://d3js.org/d3.v6.min.js"></script> -->
+    <script src="./d3/d3.js"></script>
+    <!--     <script src="https://cdnjs.cloudflare.com/ajax/libs/topojson/3.0.2/topojson.js"
+        integrity="sha512-TRzTPm8e1jUdGz4mhoZstgVz6TIwSYubMI+MKF18uf6zBX8gwrcO0tlH+U/YgbVUVVh15RbNSAgKlab37WFPSQ=="
+        crossorigin="anonymous"></script> -->
+    <script defer src="./topojson/topojson-client.js"></script>
+
+
+    <link rel="shortcut icon" href="./images/android-chrome-512x512.png"/>
+    <link rel="apple-touch-icon" sizes="180x180" href="./images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./images/favicon-16x16.png">
+    <link rel="manifest" href="./images/site.webmanifest">
+    <link rel="mask-icon" href="./images/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#00aba9">
+    <meta name="theme-color" content="#ffffff">
+
+
+    
+    <link rel="stylesheet" href="./css/style.css">
+    <title>India | Covid-19</title>
+</head>
+
+<body>
+    <!-- -------------------------------------     CARDS SECTIONS WITH DATE        ------------------------------------ -->
+    <div class="head">
+        <div class="date">
+            <h4 id="todaydate">15,August 2020 10:10 AM IST </h4>
+            <h1 id="countryname">India</h1>
+        </div>
+
+        <div class="cards">
+            <div id="confirmed" class="card">
+                <div class="top">
+                    <h2>Total Confirmed</h2>
+                </div>
+                <div class="bottom">
+                    <p id="india-total-confirmed-data">-</p>
+                    <p id="india-confirmed-change">+0</p>
+                </div>
+            </div>
+            <div id="active" class="card">
+                <div class="top">
+                    <h2>Total Active</h2>
+                </div>
+                <div class="bottom">
+                    <p id="india-total-active-data">-</p>
+                    <p id="india-active-change">+0</p>
+                </div>
+            </div>
+            <div id="recovered" class="card">
+                <div class="top">
+                    <h2>Total Recovered</h2>
+                </div>
+                <div class="bottom">
+                    <p id="india-total-recovered-data">-</p>
+                    <p id="india-recovered-change">+0</p>
+                </div>
+            </div>
+            <div id="death" class="card">
+                <div class="top">
+                    <h2>Total Death</h2>
+                </div>
+                <div class="bottom">
+                    <p id="india-total-death-data">-</p>
+                    <p id="india-death-change">+0</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- -----------------------------------------          MAP    --------------------------------------------     -->
+    <main>
+        <svg class="map" id="indiamap">
+            <g id="state-border" class="">
+            </g>
+            <g id="district-border" class="">
+            </g>
+            <g id="india-chloro" class="">
+            </g>
+            <g id="india-bubble" class="">
+            </g>
+
+
+        </svg>
+
+        <div class="map-nav" id="statemap-nav">
+            <div id="indiamap-type" class="map-nav-item">
+                <h3>Map Style&nbsp; : &nbsp;</h3>
+                <button id="india-state-map-btn" value="state-border" class="active">State Map</button>
+                <button id="india-district-map-btn" value="district-border">District Map</button>
+            </div>
+            <div id="indiamap-viz" class="map-nav-item">
+                <h3>Map Vizulation &nbsp;:&nbsp;</h3>
+                <button id="bubble-viz-btn" value="bubble" class="active">Bubble</button>
+                <button id="chloro-viz-btn" value="chloro">Chloropeth</button>
+
+            </div>
+            <div id="indiamap-casetype" class="map-nav-item">
+                <h3>Case Type&nbsp;:&nbsp;</h3>
+                <button id="active-case-btn" value="activecase" class="active">Active</button>
+                <button id="confirm-case-btn" value="confirmcase">Confirmed</button>
+                <button id="recover-case-btn" value="recovercase">Recovered</button>
+                <button id="death-case-btn" value="deathcase">Death</button>
+            </div>
+        </div>
+
+        <div class="map-hover-data">
+            <div id="indiamap-state-data" class="map-hover-data-item">
+                <h1 class="tnm" id="indiamap-state-name"> State:</h1>
+                <h3 class="cf" id="indiamap-state-total-confirmed">Total Confirmed:</h3>
+                <h3 class="ac" id="indiamap-state-total-active">Total Active:</h3>
+                <h3 class="rc" id="indiamap-state-total-recovered">Total Recovered:</h3>
+                <h3 class="dh" id="indiamap-state-total-death">Total Death:</h3>
+            </div>
+            <div id="indiamap-district-data" class="map-hover-data-item">
+                <h1 class="tnm" id="indiamap-district-name">District:</h1>
+                <h3 class="cf" id="indiamap-district-total-confirmed">Total Confirmed:</h3>
+                <h3 class="ac" id="indiamap-district-total-active">Total Active:</h3>
+                <h3 class="rc" id="indiamap-district-total-recovered">Total Recovered:</h3>
+                <h3 class="dh" id="indiamap-district-total-death">Total Death:</h3>
+            </div>
+        </div>
+    </main>
+
+
+    <!-- ------------------------------------------------TABLE---------------------------------------------- -->
+
+    <div class="table-conatiner" style="overflow-x:auto;">
+        <table id="indiatable" class="myTable">
+
+            <tr>
+                <th> State/UT</th>
+                <th on>Total Confirmed</th>
+                <th>Total Active </th>
+                <th>Total Recovered </th>
+                <th>Total Death </th>
+            </tr>
+
+        </table>
+    </div>
+
+
+
+
+    <!-- ------------------------------ DATA GRAPHs AND CHARTS ------------------------------   -->
+    <div id="chart-container">
+        <div id="chart-nav">
+            <select name="indiastate" id="indiastateselect">
+
+            </select>
+            <div id="chart-type">
+                <button class="active" id="cummulative-chart-btn" value='total'>Cummulative Chart</button>
+                <button id="daily-chart-btn" value='delta'>Daily Chart</button>
+            </div>
+        </div>
+
+        <div class="india-state-chart-conatainer">
+
+            <div id="confirmchart-container" class="india-state-chart">
+                <div>
+                    <h4 id="info-confirmed"></h4>
+                </div>
+                <svg id='confirm-chart'>
+                </svg>
+            </div>
+
+            <div id="activechart-container" class="india-state-chart">
+                <div>
+                    <h4 id="info-active"></h4>
+
+                </div>
+                <svg id='active-chart'>
+                </svg>
+            </div>
+
+
+            <div id="recoverchart-container" class="india-state-chart">
+                <div>
+                    <h4 id="info-recovered"></h4>
+                </div>
+                <svg id="recover-chart">
+                </svg>
+            </div>
+            <div id="deathchart-container" class="india-state-chart">
+                <div>
+                    <h4 id="info-deceased"></h4>
+                </div>
+                <svg id='death-chart'>
+                </svg>
+            </div>
+
+        </div>
+    </div>
+    <script defer type="module" src="./js/map.js"></script>
+</body>
+
+</html>

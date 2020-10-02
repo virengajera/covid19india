@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="shortcut icon" href="./images/android-chrome-512x512.png"/>
+    <link rel="apple-touch-icon" sizes="180x180" href="./images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./images/favicon-16x16.png">
+    <link rel="manifest" href="./images/site.webmanifest">
+    <link rel="mask-icon" href="./images/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#00aba9">
+    <meta name="theme-color" content="#ffffff">
+
+    <link rel="stylesheet" href="./css/style.css">
+    <script defer src="./d3/d3.js"></script>
+    <script defer src="./topojson/topojson-client.js"></script>
+    <title>State | Covid-19</title>
+</head>
+
+<body>
+    <!-- -------------------------------------     CARDS SECTIONS WITH DATE        ------------------------------------ -->
+    <div class="head">
+        <div class="date">
+            <h4 id="state-todaydate">15,August 2020 10:10 AM IST </h4>
+            <h1 id="statename">Gujarat</h1>
+        </div>
+
+        <div class="cards">
+            <div id="confirmed" class="card">
+                <div class="top">
+                    <h2>Total Confirmed</h2>
+                </div>
+                <div class="bottom">
+                    <p id="state-total-confirmed-data">-</p>
+                    <p id="state-confirmed-change">+0</p>
+                </div>
+            </div>
+            <div id="active" class="card">
+                <div class="top">
+                    <h2>Total Active</h2>
+                </div>
+                <div class="bottom">
+                    <p id="state-total-active-data">-</p>
+                    <p id="state-active-change">+0</p>
+                </div>
+            </div>
+            <div id="recovered" class="card">
+                <div class="top">
+                    <h2>Total Recovered</h2>
+                </div>
+                <div class="bottom">
+                    <p id="state-total-recovered-data">-</p>
+                    <p id="state-recovered-change">+0</p>
+                </div>
+            </div>
+            <div id="death" class="card">
+                <div class="top">
+                    <h2>Total Death</h2>
+                </div>
+                <div class="bottom">
+                    <p id="state-total-death-data">-</p>
+                    <p id="state-death-change">+0</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- -----------------------------------------       MAP    --------------------------------------------     -->
+    <main id="statemain">
+        <svg class="map" id="statemap">
+            <g id="each-state-border">
+            </g>
+            <g id="each-state-chloro"></g>
+            <g id="each-state-bubble"></g>
+        </svg>
+
+        <div class="map-nav" id="each-state-map-nav">
+            <div id="statemap-viz" class="map-nav-item">
+                <h3>Map Vizulation</h3>
+                <button id="each-state-bubble-btn" value="bubble" class="active">Bubble</button>
+                <button id="each-state-chloro-btn" value="chloro">Chloropeth</button>
+
+            </div>
+            <div id="statemap-casetype" class="map-nav-item">
+                <h3>Case Type</h3>
+                <button id="each-state-active-btn" value="activecase" class="active"> Active</button>
+                <button id="each-state-confirm-btn" value="confirmcase">Confirmed</button>
+                <button id="each-state-recover-btn" value="recovercase">Recovered</button>
+                <button id="each-state-death-btn" value="deathcase">Death</button>
+            </div>
+        </div>
+
+        <div class="map-hover-data map-hover-data-item" id="statemap-hover-data">
+            <h1 class="tnm" id="statemap-district-name">District: </h1>
+            <h3 class="cf" id="statemap-district-total-confirmed">Total Confirmed:-</h3>
+            <h3 class="ac" id="statemap-district-total-active">Total Active:-</h3>
+            <h3 class="rc" id="statemap-district-total-recover">Total Recovered:-</h3>
+            <h3 class="dh" id="statemap-district-total-death">Total Death:- </h3>
+        </div>
+    </main>
+
+
+    <!-- ------------------------------------------------TABLE---------------------------------------------- -->
+
+    <div class="table-conatiner" style="overflow-x:auto;">
+        <table id="statetable" class="myTable">
+            <tr>
+                <th>District/State </th>
+                <th>Total Confirmed</th>
+                <th>Total Active</th>
+                <th>Total Recovered </th>
+                <th>Total Death</th>
+            </tr>
+            <tr class="item" id='stdt'>
+
+            </tr>
+
+        </table>
+    </div>
+
+
+
+
+    <!-- ------------------------------ DATA GRAPHs AND CHARTS ------------------------------   -->
+    <div id="chart-container">
+        <div id="chart-nav">
+            <select name="statedistrict" id="statedistrictselect">
+
+            </select>
+            <div id="chart-type">
+                <button class="active" value="total" id="st-cummulative-chart-btn">Cummulative Chart</button>
+                <button value="delta" id="st-daily-chart-btn">Daily Chart</button>
+            </div>
+        </div>
+
+        <div class="india-state-chart-conatainer">
+
+            <div id="st-confirmchart-container" class="india-state-chart">
+                <div>
+                    <h4 id="info-confirmed"></h4>
+                </div>
+                <svg id='st-confirm-chart'>
+                </svg>
+            </div>
+
+            <div id="st-activechart-container" class="india-state-chart">
+                <div>
+                    <h4 id="info-active"></h4>
+
+                </div>
+                <svg id='st-active-chart'>
+                </svg>
+            </div>
+
+
+            <div id="st-recoverchart-container" class="india-state-chart">
+                <div>
+                    <h4 id="info-recovered"></h4>
+                </div>
+                <svg id="st-recover-chart">
+                </svg>
+            </div>
+            <div id="st-deathchart-container" class="india-state-chart">
+                <div>
+                    <h4 id="info-deceased"></h4>
+                </div>
+                <svg id='st-death-chart'>
+                </svg>
+            </div>
+
+        </div>
+    </div>
+
+    <script defer type="module" src="./js/map2.js"> </script>
+
+</body>
+
+</html>
