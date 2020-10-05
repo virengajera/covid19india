@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&display=swap');
 :root {
     --mainbg: #252536; 
     --lightblue: rgba(0, 123, 255, 0.15);
@@ -13,10 +14,10 @@
 *{
     margin:0;
     padding:0;
-    font-family: 'Montserrat';
 }
 body{
     background-color: var(--mainbg);
+    font-family: 'Montserrat', sans-serif;
 }
 
 /* TOP PART WITH CARDS AND DATE */
