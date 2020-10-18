@@ -1,5 +1,6 @@
 # covid19india
 Project Link  https://viren-gajera.github.io/covid19india/
+
 Covid 19 India is a project written in HTML,CSS,Vanilla JS and use of D3.js(https://d3js.org/) which shows realtime stats of covid data in india and its state/UT and all districts also it has Map and Chart Visulization
 
 Clone of https://www.covid19india.org/
