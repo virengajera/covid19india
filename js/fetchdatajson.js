@@ -43,23 +43,23 @@ export async function fetchdatajson() {
         india_daily_dth.push(ddth)
 
         /* Dates  */
-        let iterator = element.date
+      /*  let iterator = element.date
         let b = iterator.trim();
         let c = b.split(" ")
         let dt = parseInt(c[0])
         let mth = parseInt(months[c[1]])
         let olddt = new Date(`2020-${mth + 1}-${dt}`)
         oldformatedate.push(olddt);
-        newdate.push(olddt.toISOString())
+        newdate.push(olddt.toISOString())*/
     });
 
 
 
     return {
-        dates:{
+        /*dates:{
                 format1:oldformatedate,
                 isoformat:newdate
-        },
+        },*/
         latest: {
             latest_tt_cf: india_tt_cf[l - 1],
             latest_tt_ac: india_tt_ac[l - 1],
