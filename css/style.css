@@ -444,6 +444,7 @@ select {
     }
     .india-state-chart{
         width: 95%;
+        margin: 5px 0;
     }
    
     #statemain{
