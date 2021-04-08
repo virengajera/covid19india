@@ -309,7 +309,7 @@ export function lollipopchart(selection_id, casetype, seriresdata, case_category
         .attr("x2", (d) => x(new Date(d[0])))
         .attr("y2", (d) => y(0))
         .attr("stroke", lollipopcolors[casetype][1])
-        .attr('stroke-width', 2)
+        .attr('stroke-width', 1)
 
 
     // variable u: map data to existing circle
@@ -323,7 +323,7 @@ export function lollipopchart(selection_id, casetype, seriresdata, case_category
         .transition()
         .attr("cx", (d) => x(new Date(d[0])))
         .attr("cy", (d) => y(d[1][case_category][casetype]))
-        .attr("r", 1.5)
+        .attr("r", 0.5)
         .attr("fill", lollipopcolors[casetype][0])
         .attr('stroke', lollipopcolors[casetype][0])
 
