@@ -18,6 +18,8 @@
 body{
     background-color: var(--mainbg);
     font-family: 'Montserrat', sans-serif;
+    max-width: 100vw;
+    overflow-x: hidden;
 }
 
 /* TOP PART WITH CARDS AND DATE */
