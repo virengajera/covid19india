@@ -17,9 +17,10 @@ let b;
 let state, district;
 
 /* TODAYs `s Date Update */
-let a = new Date()
+//let a = new Date()
 d3.select("#todaydate")
-    .text(`${a.getDate()}/${a.getMonth() + 1}/${a.getFullYear()}`)
+    .text(`25-Aug-2020`)
+    //.text(`${a.getDate()}/${a.getMonth() + 1}/${a.getFullYear()}`)
 
 
 function add_select_option() {
