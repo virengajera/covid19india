@@ -19,7 +19,7 @@ let state, district;
 /* TODAYs `s Date Update */
 //let a = new Date()
 d3.select("#todaydate")
-    .text(`25-Aug-2020`)
+    .text(`15-Aug-2020`)
     //.text(`${a.getDate()}/${a.getMonth() + 1}/${a.getFullYear()}`)
 
 
