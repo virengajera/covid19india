@@ -6,7 +6,7 @@ export async function indiamapdataprocessed() {
     const indiamapdata = await indiamapdatares.json();
 
     //const statedatares = await fetch("../apidata/latest_state.json")
-    const statedatares = await fetch(https://raw.githubusercontent.com/Viren-Gajera/india-topojson/main/apidata/latest_state.json")
+    const statedatares = await fetch("https://raw.githubusercontent.com/Viren-Gajera/india-topojson/main/apidata/latest_state.json")
     //const statedatares = await fetch("https://api.covid19india.org/v4/data.json")
     const statecasedata = await statedatares.json()
 
