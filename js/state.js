@@ -18,9 +18,10 @@ const chloroplethcolormapper = {
     recovercase: [d3.interpolateGreens, "rgba(255,7,58,0.5)"],
     deathcase: [d3.interpolateGreys, "rgba(108,117,125,0.7)"]
 }
-const a = new Date()
+//const a = new Date()
 d3.select("#state-todaydate")
-    .text(`${a.getDate()}/${a.getMonth() + 1}/${a.getFullYear()}`)
+    .text(`15-Aug-2020`)
+    //.text(`${a.getDate()}/${a.getMonth() + 1}/${a.getFullYear()}`)
 
 let SessionStatename = localStorage.getItem('statename')
 let SessionStatecode = localStorage.getItem('statecode')
