@@ -12,4 +12,5 @@ Covid 19 India is a Data Visualization project written in HTML,CSS,Vanilla JS an
 
 
 All the maps and API data are taken from https://github.com/covid19india/covid19india-react
+
 Note: Data is available till 15-August-2020 only.
