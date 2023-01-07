@@ -133,7 +133,6 @@ export function plotchart(selection_id, casetype, seriresdata, case_category = "
         .attr('color', chartcolors[casetype][0])
 
     // Create the X axis:
-
     x.domain([new Date(d2[d2l - 1][0]), new Date(d2[0][0])]);
     svg.selectAll(".cummulative-xaxis").call(xAxis);
 
@@ -143,7 +142,7 @@ export function plotchart(selection_id, casetype, seriresdata, case_category = "
     y.domain([minmax[0], minmax[1] * 1.2]);
     svg.selectAll(".cummulative-yaxis")
         .call(yAxis);
-    // Create a function that takes a dataset as input and update the plot:
+
 
     all_scales[casetype] = { xscale: x, yscale: y }
 
