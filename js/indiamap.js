@@ -2,11 +2,11 @@ import '../topojson/topojson-client.js'
 const state_code = { "Total": "TT", "Maharashtra": "MH", "Tamil Nadu": "TN", "Andhra Pradesh": "AP", "Karnataka": "KA", "Delhi": "DL", "Uttar Pradesh": "UP", "West Bengal": "WB", "Bihar": "BR", "Telangana": "TG", "Gujarat": "GJ", "Assam": "AS", "Rajasthan": "RJ", "Odisha": "OR", "Haryana": "HR", "Madhya Pradesh": "MP", "Kerala": "KL", "Punjab": "PB", "Jammu and Kashmir": "JK", "Jharkhand": "JH", "Chhattisgarh": "CT", "Uttarakhand": "UT", "Goa": "GA", "Tripura": "TR", "Puducherry": "PY", "Manipur": "MN", "Himachal Pradesh": "HP", "Nagaland": "NL", "Arunachal Pradesh": "AR", "Andaman and Nicobar Islands": "AN", "Ladakh": "LA", "Chandigarh": "CH", "Dadra and Nagar Haveli and Daman and Diu": "DN", "Meghalaya": "ML", "Sikkim": "SK", "Mizoram": "MZ", "State Unassigned": "UN", "Lakshadweep": "LD" }
 export async function indiamapdataprocessed() {
     //const indiamapdatares = await fetch('./mapdata/india.json')
-    const indiamapdatares = await fetch('https://raw.githubusercontent.com/Viren-Gajera/india-topojson/main/mapdata/india.json')
+    const indiamapdatares = await fetch('https://raw.githubusercontent.com/virengajera/data-covid19india/main/mapdata/india.json')
     const indiamapdata = await indiamapdatares.json();
 
     //const statedatares = await fetch("../apidata/latest_state.json")
-    const statedatares = await fetch("https://raw.githubusercontent.com/Viren-Gajera/india-topojson/main/apidata/latest_state.json")
+    const statedatares = await fetch("https://raw.githubusercontent.com/virengajera/data-covid19india/main/apidata/latest_state.json")
     //const statedatares = await fetch("https://api.covid19india.org/v4/data.json")
     const statecasedata = await statedatares.json()
 

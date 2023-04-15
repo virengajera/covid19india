@@ -5,7 +5,7 @@ const months = {
 
 export async function fetchdatajson() {
     //const res = await fetch("../apidata/data.json");
-    const res = await fetch("https://raw.githubusercontent.com/Viren-Gajera/india-topojson/main/apidata/data.json");
+    const res = await fetch("https://raw.githubusercontent.com/virengajera/data-covid19india/main/apidata/data.json");
     //const res = await fetch("https://api.covid19india.org/data.json");
     const resjson = await res.json()
     

@@ -142,7 +142,7 @@ async function fetchspecificmapdata() {
     const nocasedata = { confirmcase: 0, activecase: 0, recovercase: 0, deathcase: 0 }
 
     //let res = await fetch(`../mapdata/${SessionStatename}.json`)
-    let res = await fetch(`https://raw.githubusercontent.com/Viren-Gajera/india-topojson/main/mapdata/${SessionStatename}.json`)
+    let res = await fetch(`https://raw.githubusercontent.com/virengajera/data-covid19india/main/mapdata/${SessionStatename}.json`)
     let each_state_map_data = await res.json()
     let latest_state_json = await process_latest_state_json()
 
