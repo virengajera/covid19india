@@ -1,6 +1,6 @@
 # [Covid 19 India](https://virengajera.github.io/covid19india/)
 
-Project Live Link: https://virengajera.github.io/covid19india/
+**Project Live Link: https://virengajera.github.io/covid19india/**
 
 Covid 19 India is a Data Visualization project written in HTML,CSS,Vanilla JS and [D3.js](https://d3js.org/). It show covid cases of India statistics.
 
